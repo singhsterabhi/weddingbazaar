@@ -1,0 +1,80 @@
+#search{
+  margin: 0 auto;
+  display: inline;
+  padding: 5px;
+}
+#search select{
+  #search;
+  width: 250px;
+  height: 40px;
+}
+#butn{
+  margin-top: 0px;
+  height: 40px;
+}
+@media screen and (max-width: 480px) {
+  #search select{
+    width: 200px;
+  }
+}
+#modl{
+
+  position: relative;
+
+  a:hover{
+
+    bottom: 5px;
+    left : 4px;
+  }
+  p{
+    position:absolute;
+    bottom:10%;
+    left:0;
+    color:lightgrey;
+    width:100%;
+    text-align:center;
+    transform:translateY(-50%); /* doesn't work in IE9 and older I'm affraid */
+    margin:0;
+    color:white;
+    font-size: 20px;
+    :hover {
+      text-decoration: none;
+      color: yellow;
+
+    }
+  }
+  //img{
+  //  margin: 0 0 0 0;
+  //}
+}
+.mdl-width{
+  width:85%;
+  margin: 40px auto;
+}
+@media screen and (max-width: 480px){
+  .mdl-width{
+    width:95%;
+    margin: 20px auto;
+  }
+  #modl p{
+    font-size: 10px;
+    bottom: 18%;
+  }
+}
+@media screen and (max-width: 991px){
+  .mdl-width{
+    width:90%;
+    margin: 25px auto;
+  }
+  #modl p{
+    font-size: 13px;
+    bottom: 18%;
+  }
+  .thumb{
+    padding: 0 10px;
+  }
+}
+.thumbnail{
+  border: none;
+  padding: 0px;
+}

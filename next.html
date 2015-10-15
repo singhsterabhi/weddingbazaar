@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/next.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/parse.js"></script>
+    <script src="js/searchpage.js"></script>
+    <link rel="stylesheet" href="responsive/responsive-nav.css">
+    <script src="responsive/responsive-nav.js"></script>
+</head>
+<body onload="getdata()">
+
+    <div class="nav-collapse">
+        <ul >
+            <li>
+                <h1>Home</h1>
+            </li>
+            <li>
+                <form>
+                    <select id="place" required class="form-control">
+                        <option value="noida">Noida</option>
+                        <option value="gorakhpur">Gorakhpur</option>
+                    </select>
+                </form>
+            </li>
+
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+
+
+        </ul>
+    </div>
+    <div>
+        <table style="width:800px;margin: 0 auto;" id="mytable" class="table-striped table-hover">
+            <tr>
+                <th>Name</th>
+                <th>address</th>
+                <th>budget</th>
+            </tr>
+        </table>
+    </div>
+
+    <!--<script>-->
+
+    <!-- -->
+
+    <!--</script>-->
+    <script>
+        var nav = responsiveNav(".nav-collapse");
+    </script>
+
+</body>
+</html>
