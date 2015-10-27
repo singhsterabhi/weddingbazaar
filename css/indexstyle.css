@@ -33,10 +33,10 @@
   color: lightgrey;
   width: 100%;
   text-align: center;
-  transform: translateY(-50%);
+  transform: translateY(50%);
   /* doesn't work in IE9 and older I'm affraid */
   margin: 0;
-  color: white;
+  color: #151515;
   font-size: 20px;
 }
 #modl p :hover {
@@ -44,7 +44,7 @@
   color: yellow;
 }
 .mdl-width {
-  width: 85%;
+  width: 40%;
   margin: 40px auto;
 }
 @media screen and (max-width: 480px) {
@@ -59,7 +59,7 @@
 }
 @media screen and (max-width: 991px) {
   .mdl-width {
-    width: 90%;
+    width: 50%;
     margin: 25px auto;
   }
   #modl p {
@@ -67,10 +67,10 @@
     bottom: 18%;
   }
   .thumb {
-    padding: 0 10px;
+    padding: 20px;
   }
 }
 .thumbnail {
   border: none;
-  padding: 0px;
+  padding: 20px;
 }

@@ -7,18 +7,32 @@
 <meta name="description" content="" />
 <!-- css -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
+<script src="js/parse.js"></script>
 <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
-<link href="css/jcarousel.css" rel="stylesheet" />
+<!-- <link href="css/jcarousel.css" rel="stylesheet" /> -->
 <link href="css/flexslider.css" rel="stylesheet" />
-<link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+<!-- <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet"> -->
 <link href="css/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/indexstyle.css">
- 
+   <!-- <link href="bootstrap.css" rel="stylesheet" /> -->
+ <script type="text/javascript" src="js/search.js"></script>
+	<link href="css/login-register.css" rel="stylesheet" />
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	  
     <![endif]-->
+	
+	<!-- <link href="login-register.css" rel="stylesheet" /> -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	
+	<script src="js/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="js/bootstrap3/js/bootstrap.js" type="text/javascript"></script>
+	<script src="js/login-register.js" type="text/javascript"></script>
+	
 
 </head>
 <body>
@@ -28,26 +42,85 @@
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                    
                     <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"/></a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
+				
+						<li class="navhover " ><a href="wedding checklist" title="Wedding Checklist"><i class="fa fa-heart fa-2x " style=" padding-top:4px;"></i></a></li>
+						
                         <li class="active"><a href="index.html">Home</a></li> 
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+						<li class="navhover"><a  data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal()">Login</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 	</header>
+	
+	
+	
+	 <div class="modal fade login" id="loginModal">
+		      <div class="modal-dialog login animated">
+    		      <div class="modal-content">
+    		         <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Login with</h4>
+                    </div>
+                    <div class="modal-body">  
+                        <div class="box">
+                             <div class="content">
+                                <div class="social">
+                                    <a id="facebook_login" class="circle facebook" href="">
+                                        <i class="fa fa-facebook fa-fw"></i>
+                                    </a>
+
+                                    <a id="google_login" class="circle google" href="">
+                                        <i class="fa fa-google-plus fa-fw"></i>
+                                    </a>
+                                                                    </div>
+                                <div class="division">
+                                    <div class="line l"></div>
+                                      <span>or</span>
+                                    <div class="line r"></div>
+                                </div>
+                                <div class="error"></div>
+                                <div class="form loginBox">
+                                    <form method="post" action="/login" accept-charset="UTF-8">
+                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                    <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                    </form>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="box">
+                            <div class="content registerBox" style="display:none;">
+                             <div class="form">
+                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
+                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>New user?
+                                 <a href="javascript: showRegisterForm();">create an account</a>
+                            ?</span>
+                        </div>
+                        <div class="forgot register-footer" style="display:none">
+                             <span>Already have an account?</span>
+                             <a href="javascript: showLoginForm();">Login</a>
+                        </div>
+                    </div>        
+    		      </div>
+		      </div>
+		  </div>
 	<!-- end header -->
 	<section id="banner">
 	 
@@ -62,12 +135,12 @@
 				  	<div class="form-inline"  id="search">
 
 							<select class="form-control" id="place">
-								<option>Select a City...</option>
-								<option>Noida</option>
-								<option>Gorakhpur</option>
+								<option>Choose a City...</option>
+								<option value="noida">Noida</option>
+								<option value="delhi">Delhi</option>
 							</select>
 
-							<button class="btn btn-primary" id="butn" data-toggle="modal" data-target="#myModal">Look!</button>
+							<button class="btn btn-primary" id="butn" data-toggle="modal" data-target="#myModal">Find Vendors!</button>
 
 					</div>
 					</div>
@@ -77,9 +150,70 @@
             </ul>
 		</div>
 
-	<!-- end slider -->
+	<!-- end carousel -->
  
 	</section>
+	
+	<section class="callaction">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="aligncenter"><h1 class="aligncenter">Select</h1></div>
+				
+			</div>
+		</div>
+	</div>
+	</section>
+	<div class="container">
+    <div class="row">
+        <!-- Card Projects -->
+<a href="#"  style="text-decoration:none;">
+    <div class="col-md-3 col-md-offset-3 col-sm-offset-2 col-xm-offset-1">
+             
+            
+				<div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="img/card1.jpg">
+                    <span class="card-title">Find a Vendor</span>
+                </div>
+                
+                <div class="card-content">
+                    Let's begin finding you services, click Get Started.
+                </div>
+                
+                <div class="card-action">
+                  <p>Get Started</p>
+                </div>
+            </div>
+			
+        </div></a>
+		 
+		  <a href="#"  style="text-decoration:none;"><div class="col-md-3">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="img/card2.jpg">
+                    <span class="card-title">I'm a Vendor</span>
+                </div>
+                
+                <div class="card-content">
+                    <p>Get yourself listed on the biggest wedding marketplace.</p>
+                </div>
+                
+                <div class="card-action">
+                   <p>Know More</p>
+                </div>
+            </div>
+			
+        </div></a>
+    </div>
+</div>
+	<br>
+
+		
+		
+		
+		
+	  <hr class="margin-bottom-50">
 	<section class="callaction">
 	<div class="container">
 		<div class="row">
@@ -99,19 +233,15 @@
 	<div class="container">
 			<div class="row">
 		<div class="skill-home"> <div class="skill-home-solid clearfix"> 
-		<div class="col-md-3 text-center">
+		<div class="col-md-4 text-center">
 		<span class="icons c1"><i class="fa fa-child"></i></span> <div class="box-area">
 		<h3>You Choose Services</h3> <p>Star from choosing serivices you want, click the link above and choose from a list of local vendors offering serives</p></div>
 		</div>
-		<div class="col-md-3 text-center"> 
+		<div class="col-md-4 text-center"> 
 		<span class="icons c2"><i class="fa fa-phone-square"></i></span> <div class="box-area">
-		<h3>Call From Us</h3> <p>When you choose a serivce, our Customer Relation Manager calls you to fix a meeting at your place</p></div>
+		<h3>Call From Us</h3> <p>When you choose a serivce, our Customer Relation Manager calls you to figure out what's the best solution for you</p></div>
 		</div>
-		<div class="col-md-3 text-center"> 
-		<span class="icons c3"><i class="fa fa-coffee"></i></span> <div class="box-area">
-		<h3>We Meet You</h3> <p>Here we try to understand your requirement, know your budget, help you choose vendors and services.</p></div>
-		</div>
-		<div class="col-md-3 text-center"> 
+		<div class="col-md-4 text-center"> 
 		<span class="icons c4"><i class="fa fa-smile-o"></i></span> <div class="box-area">
 		<h3>Find Best Solution</h3> <p>We get you best possible solution for all your needs from best vendors in town within your budget</p>
 		</div></div>
@@ -121,7 +251,144 @@
 
 	</div>
 	</section>
+	
+	<!-- Featured Vendors --> 
+<section id="inner-headline">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="pageTitle" style="color:#DF013A">Our Featured Vendors</h2>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="portfolio-categ filter">
+					<li class="all active"><a href="#">All</a></li>
+					<li class="web"><a href="#" title="">Banquets</a></li>
+					<li class="icon"><a href="#" title="">Caterers</a></li>
+					<li class="graphic"><a href="#" title="">Wedding Planner</a></li>
+				</ul>
+				<div class="clearfix">
+				</div>
+				<div class="row">
+					<section id="projects">
+					<ul id="thumbs" class="portfolio">
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 " data-id="id-0" data-type="web">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class=" fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/1.jpg">
+						
+						<span class="overlay-img"></span>
+						<div class=" opp" >
+							<h2 class="text-center">Radha Palace - Anand Vihar</h2>
+						</div>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/1.jpg" alt="">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 design" data-id="id-1" data-type="icon">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
 
+						<a class="  fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/2.jpg">
+						<span class="overlay-img"></span>			
+						<div class=" opp" >
+							<h2 class="text-center">Gourmet Nation, East Kailash</h2>
+						</div>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/2.jpg" alt="">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="graphic">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="  fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/3.jpg">
+						<span class="overlay-img"></span>			
+						<div class=" opp" >
+							<h2 class="text-center">Shubh Murat - Rajouri</h2>
+						</div>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/3.jpg" alt="">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="web">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="  fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/4.jpg">
+						<span class="overlay-img"></span>			
+						<div class=" opp"  )>
+							<h2 class="text-center">Golden Banquet - Preet Vihar</h2>
+						</div>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/4.jpg" alt="">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 photography" data-id="id-4" data-type="web">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="  fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/5.jpg">
+						<span class="overlay-img"></span>			
+						<div class=" opp"  >
+							<h2 class="text-center">Ganesh Club - Anand Vihar</h2>
+						</div>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/5.jpg" alt="">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 photography" data-id="id-5" data-type="icon">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="  fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/6.jpg">
+						<span class="overlay-img"></span>			
+						<div class=" opp" >
+							<h2 class="text-center">Kebab Hut - Karkarduma</h2>
+						</div>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/6.jpg" alt="">
+						</li>
+						<!-- End Item Project -->
+						<li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="web">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="  fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/7.jpg">
+						<span class="overlay-img"></span>			
+						<div class=" opp" >
+							<h2 class="text-center">Jalsa, Rohini Sec-12</h2>
+						</div>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/7.jpg" alt="">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="graphic">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="  fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/8.jpg">
+						<span class="overlay-img"></span>			
+						<div class=" opp"  >
+							<h2 class="text-center">Dune Weddings - Patpar Ganj</h2>
+						</div>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/8.jpg" alt="">
+						</li>
+						<!-- End Item Project -->
+					</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
 
 	<!-- Modal -->
 	<div class="modal fade bs-example-modal-lg" role="dialog" id="myModal" aria-labelledby="gridSystemModalLabel">
@@ -137,108 +404,42 @@
 					<!--</div>-->
 					<div class="row" id="modl">
 
-						<div class="col-xs-4 col-sm-2 thumb ">
+						<div class="col-xs-12 col-sm-6 thumb " value="band" onclick="subm()">
 							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
+								<img src="img/assets/DJ.png" alt="band">
 								<div >
-									<p>LAWN</p>
+									<p>DJ & Band</p>
 								</div>
 							</a>
 						</div>
 
-						<div class="col-xs-4 col-sm-2 thumb ">
+						<div class="col-xs-12 col-sm-6 thumb ">
 							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
+								<img src="img/assets/venue.png" alt="...">
 								<div >
-								<p>DJ BAND</p>
+								<p>Lawns</p>
 									</div>
 							</a>
 						</div>
 
-						<div class="col-xs-4 col-sm-2 thumb ">
+						<div class="col-xs-12 col-sm-6 thumb ">
 							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
+								<img src="img/assets/photographer.png" alt="...">
 								<div >
 									<p>Photographer</p>
 								</div>
 							</a>
 
 						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
+						<div class="col-xs-12 col-sm-6 thumb ">
 							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
+								<img src="img/assets/planner.png" alt="...">
 								<div >
 									<p>Wedding Planner</p>
 								</div>
 							</a>
 
-						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
-							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
-								<div >
-									<p>Wedding Planner</p>
-								</div>
-							</a>
-
-						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
-							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
-								<div >
-									<p>Wedding Planner</p>
-								</div>
-							</a>
-
-						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
-							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
-								<div >
-									<p>LAWN</p>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
-							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
-								<div >
-									<p>LAWN</p>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
-							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
-								<div >
-									<p>LAWN</p>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
-							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
-								<div >
-									<p>LAWN</p>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
-							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
-								<div >
-									<p>LAWN</p>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-4 col-sm-2 thumb ">
-							<a href="#" class="thumbnail">
-								<img src="img/thumb.jpg" alt="...">
-								<div >
-									<p>LAWN</p>
-								</div>
-							</a>
-						</div>
+						
 
 						</div>
 					</div>
@@ -247,6 +448,239 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+	
+			<!-- Banner --> 
+<section class="banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="aligncenter"><h1 class="aligncenter" style="color:#fff; font-family:calibri; font-weight:lighter;">CUSTOMIZED WEDDING PACKAGE</h1></div>
+				<br>
+				<div class="aligncenter"><h3 class="aligncenter" style="color:#fff; font-family:calibri; font-weight:lighter; font-size:1.7em"><em>Contact us for more details</em></h3></div>
+				<div class="aligncenter"><style>.myButton {
+	-moz-box-shadow:inset 0px 0px 0px 0px #3dc21b;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #3dc21b;
+	box-shadow:inset 0px 0px 0px 0px #3dc21b;
+	
+	background-color:transparent;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:24px;
+	padding:12px 12px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background-color:#fff;
+	text-decoration:none;
+	color:#FF5869;
+}
+.myButton:active {
+	position:relative;
+	background-color:rgba(255, 88, 105, 0.6);
+	
+}
+ </style> <button class="myButton">Custom Package &#8250;</button></div>
+			</div>
+		</div>
+	</div>
+	</section>
+ 
+	
+		
+ <!--Banner End's --> 
+	
+		<!-- Why Us section starts --> 
+	
+	  
+	<section class="callaction">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="aligncenter"><h1 class="aligncenter">Why choose us?</h1></div>
+				
+			</div>
+		</div>
+	</div>
+	</section>
+<div class="container">
+        <!-- Info Blcoks -->
+        <div class="row">
+            <div class="col-sm-4  info-blocks">
+                <i class="icon-info-blocks fa fa-flag-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Best Vendors</h3>
+                    <p>We help you find the best vendors in town to make your wedding the most cherished event of your life</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-hdd-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Quick Response</h3>
+                    <p>We offer you a personal follow up over phone, as soon as you register with us</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-thumbs-o-up"></i>
+                <div class="info-blocks-in">
+                    <h3>Great Listing</h3>
+                    <p>We have a listing of hand picked vendors to make your wedding a memorable one for lifetime</p>
+                </div>
+            </div>
+        
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-calendar-check-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Save Time</h3>
+                    <p>You dont have to go around looking for people, on selected dates, we have everything here for you</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-rupee"></i>
+                <div class="info-blocks-in">
+                    <h3>Save Money</h3>
+                    <p>Clear pricing from local vendors around you to help you find the best serivce matching your budge</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-send-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Additional Services</h3>
+                    <p>We offer amazing services with our partner company <a href="http://starstudioz.com/">Star Studioz</a>, connect to know more</p>
+                </div>
+            </div>
+        </div>
+</div>
+        <!-- End Info Blcoks -->
+		
+	  <hr class="margin-bottom-50">
+	  
+	  <!-- Testimonial Start --> 
+<section class="testimonial-area">
+    <div class="testimonial-solid">
+        <div class="container">
+                <div class="quote">
+				<i class="fa fa-quote-left fa-2x"></i>
+                </div><br>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="">
+                        <a href="#"></a>
+                    </li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1" class="">
+                        <a href="#"></a>
+                    </li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2" class="active">
+                        <a href="#"></a>
+                    </li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3" class="">
+                        <a href="#"></a>
+                    </li>
+                </ol>
+                <div class="carousel-inner">
+                     <div class="item">
+                        <p>Wedding Bazaar has made my daughter's wedding real memorable. Everybody was asking so impressed with their innovative products that they will remember it for their lifetime. Thanks & all the best...</p>
+                        <p>
+                            <b>- R.N. Singhal -</b>
+                        </p>
+                    </div>
+                     <div class="item">
+                        <p>Wedding Bazaar has made my daughter's wedding real memorable. Everybody was asking so impressed with their innovative products that they will remember it for their lifetime. Thanks & all the best...</p>
+                        <p>
+                            <b>- R.N. Singhal -</b>
+                        </p>
+                    </div>
+                     <div class="item active">
+                        <p>Wedding Bazaar has made my daughter's wedding real memorable. Everybody was asking so impressed with their innovative products that they will remember it for their lifetime. Thanks & all the best...</p>
+                        <p>
+                            <b>- R.N. Singhal -</b>
+                        </p>
+                    </div>
+                     <div class="item">
+                        <p>Wedding Bazaar has made my daughter's wedding real memorable. Everybody was asking so impressed with their innovative products that they will remember it for their lifetime. Thanks & all the best...</p>
+                        <p>
+                            <b>- R.N. Singhal -</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	</section>
+
+<!-- FOOTER BEGINS HERE --> 
+<footer>
+	<div class="container">
+		<div class="row">
+		<div class="col-lg-4">
+				<div class="widget">
+					<h5 class="widgetheading">Company</h5>
+					<ul class="link-list">
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Careers</a></li>
+						<li><a href="#">Feedback</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="widget">
+					<h5 class="widgetheading">Quick Links</h5>
+					<ul class="link-list">
+						<li><a href="#">Latest Events</a></li>
+						<li><a href="#">Terms and conditions</a></li>
+						<li><a href="#">Privacy policy</a></li>
+						
+					</ul>
+				</div>
+			</div>
+			
+			<div class="col-lg-4">
+				<div class="widget">
+					<h5 class="widgetheading">Our Contact</h5>
+					<address>
+					<strong>Wedding Bazaar</strong><br>
+					R-1/88, RDC, Raj Nagar,<br>
+					  Ghaziabad</address>
+					<p>
+						<i class="icon-phone"></i> (+91) 9910-386-387<br>
+						<i class="icon-envelope-alt"></i> hello@weddingbazaar.in
+					</p>
+				</div>
+			</div>
+		
+			
+		</div>
+	</div>
+	<div id="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="copyright">
+						<p>
+							<span>&copy; weddingbazaar.in | 2015 All right reserved | By </span><a href="http://starstudioz.com" target="_blank">StarStudioz</a>
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<ul class="social-network">
+						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 
 <!-- javascript
     ================================================== -->
@@ -261,7 +695,7 @@
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/owl-carousel/owl.carousel.js"></script>
+<!-- <script src="js/owl-carousel/owl.carousel.js"></script> -->
 	<script >
 		$('#myModal').on('shown.bs.modal', function () {
 			$('#myInput').focus()

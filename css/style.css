@@ -6,17 +6,17 @@ Do not remove the back-link in this web template
 -------------------------------------------------------*/
 
 @import url('http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700'); 
-@import url('font-awesome.css');  
+@import url('font-awesome.css');
 @import url('animate.css');
 
-body {
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css');
+body { 
 	font-family:'Open Sans', Arial, sans-serif;
 	font-size:14px;
 	font-weight:300;
 	line-height:1.6em;
 	color:#656565;
 }
-
 a:active {
 	outline:0;
 }
@@ -81,7 +81,8 @@ header .navbar {
     line-height: 1em;
 	letter-spacing: -1px;
     margin-top: 20px;
-    padding: 0 0 0 15px;
+    padding: 0 0 0 0px;
+	bottom:10px
 }
 .navbar-default .navbar-brand{
 color: #1891EC;
@@ -126,6 +127,7 @@ header .navbar-default .navbar-nav > .open > a:focus {
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
+	
 }
 
 
@@ -195,6 +197,20 @@ header .nav li .dropdown-menu li a {
    padding: 3px 12px;
 }
 
+.navhover  a:hover {
+	color: rgba(255,255,255,1)!important;
+	background: rgba(0, 0, 0, 0);
+
+	-webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: rotate scale(1.1);
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
 /* --- menu --- */
 
 header .navigation {
@@ -308,10 +324,11 @@ z-index: 1;
 position: absolute;
 }
 .image{
-	height: 450px;
+	height: 550px;
     background-position: center;
     background-size: cover;
 }
+
 .flex-direction-nav a{
 display:none;
 }
@@ -469,6 +486,10 @@ section.callaction {
 
 /* Content
 ==================================== */
+section.banner {
+	background:#FF5869;
+	padding:50px 0 30px 0;
+}
 
 #content {
 	position:relative;
@@ -736,11 +757,27 @@ form#commentform textarea {
 	margin-bottom: 30px;
 	cursor: pointer;
 }
-
 .item-thumbs a + img {
 	width: 100%;	
 }
 
+
+.opp h2 {
+  position: absolute; 
+  bottom: 10px;
+  left: 10px; right:10px;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 4px 8px;
+  color: white;
+  margin: 0;
+  font: 14px calibri;
+}
+
+.opp h2 {
+  background: rgba(255, 255, 255, 0.85);
+  color: black;
+  font-size:20px;
+}
 .item-thumbs .hover-wrap {
 	position: absolute;
 	display: block;
@@ -988,7 +1025,7 @@ ul.link-list li{
 	list-style:none;
 }
 footer{
-background:#000;
+background:#1f1f1f;
 }
 footer ul.link-list li a{
 	color:#fff;
@@ -1340,7 +1377,7 @@ ul.social-network li {
 	padding:0;
 	padding-top:30px;
 	margin:20px 0 0 0;
-	background: #000000;
+	background: #1b1b1b;
 }
 
 #sub-footer p{
@@ -1711,4 +1748,86 @@ top: 150px; background-color: transparent; color: #fff; margin: 0; padding: 10px
 
 }
 
- 
+/*Cards*/
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+	background: rgba(0, 0, 0, 0.015);
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-clip: padding-box;
+  
+            height: 300px;
+            transition-property: background;
+            transition-duration: 500ms;
+            transition-timing-function: linear;
+            width: 250px;
+}
+.card:hover {
+            background: rgba(0, 0, 0, 0);
+			margin:-10;
+			 -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: rotate scale(1.05);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+        }
+.card span.card-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card .card-image {
+  position: relative;
+  overflow: hidden;
+  
+}
+.card .card-image img {
+  border-radius: 2px 2px 0 0;
+  background-clip: padding-box;
+  position: relative;
+  z-index: 0;
+}
+.card .card-image span.card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+}
+.card .card-content {
+  padding: 16px;
+  border-radius: 0 0 2px 2px;
+  background-clip: padding-box;
+  box-sizing: border-box;
+}
+.card .card-content p {
+  margin: 0;
+  color: inherit;
+}
+.card .card-content span.card-title {
+  line-height: 48px;
+}
+.card .card-action {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 16px;
+}
+.card .card-action p {
+  color: #ffab40;
+  margin-right: 16px;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+.card .card-action a:hover {
+  color: #ffd8a6;
+  text-decoration: none;
+}
+
